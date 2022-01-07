@@ -89,48 +89,50 @@ class _HomeLoaded extends StatelessWidget {
         Positioned(
           top: 0,
           left: 0,
-          child: ShaderMask(
-            shaderCallback: (rect) {
-              return LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Colors.white.withOpacity(0.4),
-                  Colors.white.withOpacity(0.4),
-                  Colors.white.withOpacity(0.2),
-                  Colors.transparent,
-                ],
-                stops: const [0.0, 0.5, 0.55, 1.0],
-              ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
-            },
-            child: Image.asset(
-              'assets/images/ellipse.png',
-              width: mWidth * 0.32,
-            ),
+          // child: ShaderMask(
+          //   shaderCallback: (rect) {
+          //     return LinearGradient(
+          //       begin: Alignment.topCenter,
+          //       end: Alignment.bottomCenter,
+          //       colors: <Color>[
+          //         Colors.white.withOpacity(0.4),
+          //         Colors.white.withOpacity(0.4),
+          //         Colors.white.withOpacity(0.2),
+          //         Colors.transparent,
+          //       ],
+          //       stops: const [0.0, 0.5, 0.55, 1.0],
+          //     ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+          //   },
+          child: Image.asset(
+            'assets/images/ellipse.png',
+            color: const Color(0xff91A4AE).withOpacity(0.2),
+            width: mWidth * 0.32,
           ),
+          // ),
         ),
         Positioned(
           bottom: 0,
           right: 0,
-          child: ShaderMask(
-            shaderCallback: (rect) {
-              return LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Colors.white.withOpacity(0.25),
-                  Colors.white.withOpacity(0.25),
-                  Colors.white.withOpacity(0.1),
-                  Colors.transparent,
-                ],
-                stops: const [0.0, 0.5, 0.55, 1.0],
-              ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
-            },
-            child: Image.asset(
-              'assets/images/ellipse-2.png',
-              width: mWidth * 0.22,
-            ),
+          // child: ShaderMask(
+          //   shaderCallback: (rect) {
+          //     return LinearGradient(
+          //       begin: Alignment.topCenter,
+          //       end: Alignment.bottomCenter,
+          //       colors: <Color>[
+          //         Colors.white.withOpacity(0.25),
+          //         Colors.white.withOpacity(0.25),
+          //         Colors.white.withOpacity(0.1),
+          //         Colors.transparent,
+          //       ],
+          //       stops: const [0.0, 0.5, 0.55, 1.0],
+          //     ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+          //   },
+          child: Image.asset(
+            'assets/images/ellipse-2.png',
+            color: const Color(0xff91A4AE).withOpacity(0.15),
+            width: mWidth * 0.22,
           ),
+          // ),
         ),
         Positioned(
           left: mWidth * 0.05,
