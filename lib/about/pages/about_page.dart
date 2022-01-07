@@ -74,6 +74,7 @@ class _AboutLoaded extends StatelessWidget {
             ),
             child: Image.asset(
               'assets/images/ellipse-3.png',
+              color: const Color(0xff1864D7).withOpacity(0.75),
               width: size.width > _tablet ? 240 : 190,
             ),
           ),

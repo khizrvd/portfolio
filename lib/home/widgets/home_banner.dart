@@ -89,21 +89,47 @@ class _HomeLoaded extends StatelessWidget {
         Positioned(
           top: 0,
           left: 0,
-          child: Image.asset(
-            'assets/images/ellipse.png',
-            height: 525,
-            color: Colors.white.withOpacity(0.1),
-            colorBlendMode: BlendMode.modulate,
+          child: ShaderMask(
+            shaderCallback: (rect) {
+              return LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Colors.white.withOpacity(0.4),
+                  Colors.white.withOpacity(0.4),
+                  Colors.white.withOpacity(0.2),
+                  Colors.transparent,
+                ],
+                stops: const [0.0, 0.5, 0.55, 1.0],
+              ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+            },
+            child: Image.asset(
+              'assets/images/ellipse.png',
+              width: mWidth * 0.32,
+            ),
           ),
         ),
         Positioned(
-          bottom: 50,
+          bottom: 0,
           right: 0,
-          child: Image.asset(
-            'assets/images/ellipse-2.png',
-            height: 400,
-            color: Colors.white.withOpacity(0.15),
-            colorBlendMode: BlendMode.modulate,
+          child: ShaderMask(
+            shaderCallback: (rect) {
+              return LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Colors.white.withOpacity(0.25),
+                  Colors.white.withOpacity(0.25),
+                  Colors.white.withOpacity(0.1),
+                  Colors.transparent,
+                ],
+                stops: const [0.0, 0.5, 0.55, 1.0],
+              ).createShader(Rect.fromLTRB(0, 0, rect.width, rect.height));
+            },
+            child: Image.asset(
+              'assets/images/ellipse-2.png',
+              width: mWidth * 0.22,
+            ),
           ),
         ),
         Positioned(
