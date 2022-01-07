@@ -27,24 +27,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => HomeBloc(
-            RepositoryProvider.of(context),
-          ),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Portfolio',
-        theme: ThemeData(
-          primaryColor: primaryColor,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-          textTheme: GoogleFonts.poppinsTextTheme(),
-        ),
-        home: const HomePage(),
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Portfolio',
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
+      home: const HomePage(),
     );
   }
 }

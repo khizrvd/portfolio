@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/home/bloc/home_bloc.dart';
 import 'package:portfolio/home/widgets/home_banner.dart';
 import 'package:portfolio/home/widgets/web_nav_bar.dart';
 import 'package:portfolio/utils/constants.dart';
@@ -53,8 +55,13 @@ class _HomePageState extends State<HomePage> {
         controller: controller,
         scrollDirection: Axis.vertical,
         children: [
-          HomeBanner(
-            controller: controller,
+          BlocProvider(
+            create: (context) => HomeBloc(
+            RepositoryProvider.of(context),
+          ),
+            child: HomeBanner(
+              controller: controller,
+            ),
           ),
         ],
       ),
