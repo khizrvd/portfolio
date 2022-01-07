@@ -1,10 +1,25 @@
 part of 'portfolio_bloc.dart';
 
-abstract class PortfolioState extends Equatable {
-  const PortfolioState();
-  
-  @override
-  List<Object> get props => [];
-}
+enum PortfolioStatus { initial, loading, loaded, error }
 
-class PortfolioInitial extends PortfolioState {}
+class PortfolioState extends Equatable {
+  const PortfolioState({
+    this.portfolioStatus = PortfolioStatus.initial,
+    this.portfolioData,
+  });
+  final PortfolioStatus portfolioStatus;
+  final PortfolioRepoModel? portfolioData;
+
+  PortfolioState copyWith({
+    PortfolioStatus? portfolioStatus,
+    PortfolioRepoModel? portfolioData,
+  }) {
+    return PortfolioState(
+      portfolioStatus: portfolioStatus ?? this.portfolioStatus,
+      portfolioData: portfolioData ?? this.portfolioData,
+    );
+  }
+
+  @override
+  List<Object?> get props => [portfolioStatus, portfolioData];
+}

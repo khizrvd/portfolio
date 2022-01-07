@@ -1,8 +1,8 @@
 part of 'portfolio_bloc.dart';
 
-abstract class PortfolioEvent extends Equatable {
-  const PortfolioEvent();
+abstract class PortfolioEvent extends Equatable {}
 
+class PortfolioDataLoaded extends PortfolioEvent {
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }

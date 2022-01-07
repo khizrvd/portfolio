@@ -1,10 +1,25 @@
 part of 'contact_bloc.dart';
 
-abstract class ContactState extends Equatable {
-  const ContactState();
-  
-  @override
-  List<Object> get props => [];
-}
+enum ContactStatus { initial, loading, loaded, error }
 
-class ContactInitial extends ContactState {}
+class ContactState extends Equatable {
+  const ContactState({
+    this.contactStatus = ContactStatus.initial,
+    this.contactData,
+  });
+  final ContactStatus contactStatus;
+  final ContactRepoModel? contactData;
+
+  ContactState copyWith({
+    ContactStatus? contactStatus,
+    ContactRepoModel? contactData,
+  }) {
+    return ContactState(
+      contactStatus: contactStatus ?? this.contactStatus,
+      contactData: contactData ?? this.contactData,
+    );
+  }
+
+  @override
+  List<Object?> get props => [contactStatus, contactData];
+}
