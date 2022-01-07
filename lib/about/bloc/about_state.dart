@@ -1,10 +1,25 @@
 part of 'about_bloc.dart';
 
-abstract class AboutState extends Equatable {
-  const AboutState();
-  
-  @override
-  List<Object> get props => [];
-}
+enum AboutStatus { initial, loading, loaded, error }
 
-class AboutInitial extends AboutState {}
+class AboutState extends Equatable {
+  const AboutState({
+    this.aboutStatus = AboutStatus.initial,
+    this.aboutData,
+  });
+  final AboutStatus aboutStatus;
+  final AboutRepoModel? aboutData;
+
+  AboutState copyWith({
+    AboutStatus? aboutStatus,
+    AboutRepoModel? aboutData,
+  }) {
+    return AboutState(
+      aboutStatus: aboutStatus ?? this.aboutStatus,
+      aboutData: aboutData ?? this.aboutData,
+    );
+  }
+
+  @override
+  List<Object?> get props => [aboutStatus, aboutData];
+}

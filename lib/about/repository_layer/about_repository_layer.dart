@@ -6,7 +6,7 @@ class AboutRepoLayer {
 
   final AboutDataLayer _aboutDataLayer;
 
-  Future<AboutRepoModel> getHomeData() async {
+  Future<AboutRepoModel> getAboutData() async {
     var _aboutData = await _aboutDataLayer.getAboutData();
     return AboutRepoModel(
       name: _aboutData.name,
