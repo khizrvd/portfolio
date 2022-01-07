@@ -1,0 +1,9 @@
+{
+    "status": "ERROR",
+    "message": "Home Page Not Found",
+    "data": {
+        "name": "Khizr Farooqui",
+        "qualification": "Software Engineer",
+        "location": "Flutter Intern at VentureDive in Karachi"
+    }
+}

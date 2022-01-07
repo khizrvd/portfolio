@@ -1,0 +1,44 @@
+{
+    "status": "ERROR",
+    "message": "Skill Page Not Found",
+    "data": {
+        "skills": [
+            {
+                "id": 1,
+                "title": "Product Design",
+                "image": "https://imgur.com/Hp6gP52",
+                "description": "Product design is the process designers use to blend user       needs with business goals to help brands make consistently successful products."
+            },
+            {
+                "id": 2,
+                "title": "App Design",
+                "image": "https://imgur.com/owffwbA",
+                "description": "App design combines the user interface (UI) and user experience (UX). While UI lends itself to the overall style of the app (including the colors, fonts, and general look and feel), UX focuses on the actual functionality and usability."
+            },
+            {
+                "id": 3,
+                "title": "Web Design",
+                "image": "https://imgur.com/Zt6LHvS",
+                "description": "A web design is a plan or specification for the construction of an object or system or for the implementation of an activity or process, or the result of that plan or specification in the form of a prototype, product or process."
+            },
+            {
+                "id": 4,
+                "title": "Development",
+                "image": "https://imgur.com/Q4pgVbI",
+                "description": "Development is the building and maintenance of websites and apps; it's the work that happens behind the scenes to make a website look great, work fast and perform well with a seamless user experience."
+            },
+            {
+                "id": 5,
+                "title": "Illustration",
+                "image": "https://imgur.com/cZDwTMm",
+                "description": "An illustration is a visualization or a depiction made by an artist, such as a drawing, sketch, painting, photograph, or other kind of image of things seen, remembered or imagined, using a graphical representation."
+            },
+            {
+                "id": 6,
+                "title": "Motion",
+                "image": "https://imgur.com/kUPcO0v",
+                "description": "motion design is a discipline that applies graphic design principles to filmmaking and video production through use of animation and visual effects."
+            }
+        ]
+    }
+}

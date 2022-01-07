@@ -1,0 +1,38 @@
+{
+    "status": "ERROR",
+    "message": "Portfolio Page Not Found",
+    "data": {
+        "projects": [
+            {
+                "id": 1,
+                "title": "ArchDaily",
+                "image": "https://imgur.com/78eEbCZ"
+            },
+            {
+                "id": 2,
+                "title": "NGEBON Farming",
+                "image": "https://imgur.com/pyBsI8P"
+            },
+            {
+                "id": 3,
+                "title": "Banking App",
+                "image": "https://imgur.com/LBciiw0"
+            },
+            {
+                "id": 4,
+                "title": "Musikita",
+                "image": "https://imgur.com/XqYG3cS"
+            },
+            {
+                "id": 5,
+                "title": "Crypton",
+                "image": "https://imgur.com/kH1QaGA"
+            },
+            {
+                "id": 6,
+                "title": "LearnNow",
+                "image": "https://imgur.com/Fh0hDwU"
+            }
+        ]
+    }
+}

@@ -1,0 +1,49 @@
+{
+    "status": "ERROR",
+    "message": "About Page Not Found",
+    "data": {
+        "name": "Khizr Farooqui",
+        "qualification": "Software Engineer",
+        "location": "Flutter Intern at VentureDive in Karachi",
+        "description": "Strong in design and integration with intuitive problem-solving skills. Proficient in FLUTTER. Passionate about implementing and launching projects. Ability to translate business requirements into technical solutions.",
+        "hobbies": [
+            {
+                "id": 1,
+                "title": "Movie",
+                "image": "https://imgur.com/u5xLSMy"
+            },
+            {
+                "id": 2,
+                "title": "Travel",
+                "image": "https://imgur.com/J7jtjTI"
+            },
+            {
+                "id": 3,
+                "title": "Photo",
+                "image": "https://imgur.com/t42FGrm"
+            }
+        ],
+        "skills": [
+            {
+                "id": 1,
+                "title": "User Research",
+                "image": "https://imgur.com/sKpNkPO"
+            },
+            {
+                "id": 2,
+                "title": "Mockup",
+                "image": "https://imgur.com/vul8CWk"
+            },
+            {
+                "id": 3,
+                "title": "Wireframing",
+                "image": "https://imgur.com/jUmD2Fl"
+            },
+            {
+                "id": 4,
+                "title": "Prototype",
+                "image": "https://imgur.com/48VuvHf"
+            }
+        ]
+    }
+}
