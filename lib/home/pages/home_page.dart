@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio/about/bloc/about_bloc.dart';
+import 'package:portfolio/about/pages/about_page.dart';
 import 'package:portfolio/home/bloc/home_bloc.dart';
 import 'package:portfolio/home/widgets/home_banner.dart';
 import 'package:portfolio/home/widgets/web_nav_bar.dart';
@@ -15,6 +17,21 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final PageController controller = PageController();
+
+  @override
+  void initState() {
+    controller.addListener(() {
+      setState(() {});
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     double mWidth = MediaQuery.of(context).size.width;
@@ -23,10 +40,11 @@ class _HomePageState extends State<HomePage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         centerTitle: false,
+        automaticallyImplyLeading: false,
+        elevation: 0,
         backgroundColor: controller.hasClients && controller.page == 1
             ? const Color(0xff4275FA)
             : Colors.transparent,
-        elevation: 0,
         title: Row(
           children: [
             SizedBox(width: mWidth * 0.03),
@@ -57,9 +75,17 @@ class _HomePageState extends State<HomePage> {
         children: [
           BlocProvider(
             create: (context) => HomeBloc(
-            RepositoryProvider.of(context),
-          ),
+              RepositoryProvider.of(context),
+            ),
             child: HomeBanner(
+              controller: controller,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => AboutBloc(
+              RepositoryProvider.of(context),
+            ),
+            child: AboutPage(
               controller: controller,
             ),
           ),

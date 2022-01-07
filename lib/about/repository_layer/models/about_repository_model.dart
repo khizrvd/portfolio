@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class AboutRepoModel extends Equatable {
   const AboutRepoModel({
-    required this.name,
+    this.name,
     this.qualification,
     this.location,
     this.description,
@@ -10,7 +10,7 @@ class AboutRepoModel extends Equatable {
     this.skills,
   });
 
-  final String name;
+  final String? name;
   final String? qualification;
   final String? location;
   final String? description;

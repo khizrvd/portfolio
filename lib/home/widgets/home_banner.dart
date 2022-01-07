@@ -186,7 +186,7 @@ class _HomeLoaded extends StatelessWidget {
       stops: [0.0, 1.0],
       begin: FractionalOffset.bottomRight,
       end: FractionalOffset.topLeft,
-      tileMode: TileMode.repeated,
+      tileMode: TileMode.clamp,
     ),
   );
 
