@@ -31,7 +31,7 @@ class HobbyList extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        const Padding(padding: EdgeInsets.only(left: 20.0))
+        const Padding(padding: EdgeInsets.only(left: 20.0),),
       ],
     );
   }

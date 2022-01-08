@@ -18,31 +18,20 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> {
   final PageController controller = PageController();
-  late AnimationController _animationController;
 
   @override
   void initState() {
     controller.addListener(() {
       setState(() {});
     });
-    _animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(
-        milliseconds: 750,
-      ),
-    );
-    Timer(const Duration(milliseconds: 200),
-        () => _animationController.forward());
     super.initState();
   }
 
   @override
   void dispose() {
     controller.dispose();
-    _animationController.dispose();
     super.dispose();
   }
 
@@ -108,7 +97,6 @@ class _HomePageState extends State<HomePage>
             ),
             child: HomeBanner(
               controller: controller,
-              animationController: _animationController,
             ),
           ),
           BlocProvider(

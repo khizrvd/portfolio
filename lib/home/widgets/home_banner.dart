@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/home/bloc/home_bloc.dart';
@@ -9,11 +11,8 @@ import 'package:portfolio/utils/animation.dart';
 import 'package:portfolio/utils/constants.dart';
 
 class HomeBanner extends StatelessWidget {
-  const HomeBanner(
-      {Key? key, required this.controller, required this.animationController})
-      : super(key: key);
+  const HomeBanner({Key? key, required this.controller}) : super(key: key);
   final PageController controller;
-  final AnimationController animationController;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,6 @@ class HomeBanner extends StatelessWidget {
           case HomeStatus.loaded:
             return _HomeLoaded(
               homeData: state.homeData,
-              animationController: animationController,
             );
           case HomeStatus.error:
           default:
@@ -66,13 +64,37 @@ class _HomeLoading extends StatelessWidget {
   }
 }
 
-class _HomeLoaded extends StatelessWidget {
-  const _HomeLoaded(
-      {Key? key, required this.homeData, required this.animationController})
-      : super(key: key);
+class _HomeLoaded extends StatefulWidget {
+  const _HomeLoaded({Key? key, required this.homeData}) : super(key: key);
 
   final HomeRepoModel? homeData;
-  final AnimationController animationController;
+
+  @override
+  State<_HomeLoaded> createState() => _HomeLoadedState();
+}
+
+class _HomeLoadedState extends State<_HomeLoaded>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 500,
+      ),
+    );
+    Timer(
+        const Duration(milliseconds: 200), () => animationController.forward());
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,20 +137,20 @@ class _HomeLoaded extends StatelessWidget {
                 left: mWidth * 0.05,
                 child: CreditsWebView(
                   animationController: animationController,
-                  name: "HELLO I'M ${homeData!.name.toUpperCase()}",
+                  name: "HELLO I'M ${widget.homeData!.name.toUpperCase()}",
                   qualification:
-                      homeData?.qualification.toString().toUpperCase(),
-                  location: homeData?.location.toString(),
+                      widget.homeData?.qualification.toString().toUpperCase(),
+                  location: widget.homeData?.location.toString(),
                 ),
               )
             : Positioned(
                 top: 55,
                 child: CreditsMobileView(
                   animationController: animationController,
-                  name: "HELLO I'M ${homeData!.name.toUpperCase()}",
+                  name: "HELLO I'M ${widget.homeData!.name.toUpperCase()}",
                   qualification:
-                      homeData?.qualification.toString().toUpperCase(),
-                  location: homeData?.location.toString(),
+                      widget.homeData?.qualification.toString().toUpperCase(),
+                  location: widget.homeData?.location.toString(),
                 ),
               ),
         Positioned(
@@ -136,14 +158,14 @@ class _HomeLoaded extends StatelessWidget {
           right: mWidth * 0.05,
           child: size.width > mobile
               ? CustomAnimation(
-                animationController: animationController,
-                beginOffset: const Offset(1, 0),
-                endOffset: Offset.zero,
-                child: Image.asset(
-                  "assets/images/hero-img.png",
-                  width: size.width > tablet ? 500 : 400,
-                ),
-              )
+                  animationController: animationController,
+                  beginOffset: const Offset(1, 0),
+                  endOffset: Offset.zero,
+                  child: Image.asset(
+                    "assets/images/hero-img.png",
+                    width: size.width > tablet ? 500 : 400,
+                  ),
+                )
               : Container(),
         ),
       ],
