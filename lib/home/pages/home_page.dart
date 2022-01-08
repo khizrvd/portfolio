@@ -5,8 +5,11 @@ import 'package:portfolio/about/bloc/about_bloc.dart';
 import 'package:portfolio/about/pages/about_page.dart';
 import 'package:portfolio/home/bloc/home_bloc.dart';
 import 'package:portfolio/home/widgets/home_banner.dart';
+import 'package:portfolio/home/widgets/mobile_nav_bar.dart';
 import 'package:portfolio/home/widgets/web_nav_bar.dart';
 import 'package:portfolio/utils/constants.dart';
+
+double _mobile = 700;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -35,9 +38,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     double mWidth = MediaQuery.of(context).size.width;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: backgroundColor,
       extendBodyBehindAppBar: true,
+      endDrawer: const MobileNavBar(),
       appBar: AppBar(
         centerTitle: false,
         automaticallyImplyLeading: false,
@@ -59,11 +64,24 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         actions: [
-          // Builder(builder: (context) {
-          //return
-          const WebNavBar(),
-          // },
-          // ),
+          size.width > _mobile
+              ? const WebNavBar()
+              : Builder(
+                  builder: (context) {
+                    return FloatingActionButton.small(
+                      backgroundColor: Colors.white,
+                      elevation: 0,
+                      onPressed: () {
+                        Scaffold.of(context).openEndDrawer();
+                      },
+                      child: const Icon(
+                        Icons.menu,
+                        size: 20.0,
+                        color: Colors.blue,
+                      ),
+                    );
+                  },
+                ),
           SizedBox(
             width: mWidth * 0.03,
           ),
