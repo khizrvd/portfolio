@@ -10,8 +10,9 @@ class AboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return SizedBox(
-      width: 300,
+      width: size.width <= mobile ? 450 : 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -19,7 +20,7 @@ class AboutMe extends StatelessWidget {
           Text(
             'ABOUT ME',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: size.width <= mobile ? 15 : 20,
               color: primaryColor,
               fontWeight: FontWeight.w500,
             ),
@@ -28,7 +29,7 @@ class AboutMe extends StatelessWidget {
           Text(
             aboutData?.qualification?.toString() ?? 'Unknown',
             style: TextStyle(
-              fontSize: 30,
+              fontSize: size.width <= mobile ? 25 : 30,
               color: secondaryColor,
               fontWeight: FontWeight.w600,
             ),
@@ -37,9 +38,9 @@ class AboutMe extends StatelessWidget {
           Flexible(
             child: Text(
               aboutData?.description?.toString() ?? 'Unknown',
-              style: const TextStyle(
-                fontSize: 16,
-                color: Color(0xff5F5E79),
+              style: TextStyle(
+                fontSize: size.width <= mobile ? 12 : 16,
+                color: const Color(0xff5F5E79),
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -48,7 +49,7 @@ class AboutMe extends StatelessWidget {
           Text(
             'My Hobbies',
             style: TextStyle(
-              fontSize: 20,
+              fontSize: size.width <= mobile ? 15 : 20,
               color: secondaryColor,
               fontWeight: FontWeight.w600,
             ),

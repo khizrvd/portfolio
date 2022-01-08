@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/about/repository_layer/models/about_repository_model.dart';
 import 'package:portfolio/utils/constants.dart';
 
-double _tablet = 1000;
-
 class SkillGrid extends StatelessWidget {
   const SkillGrid({Key? key, required this.aboutData, required this.index})
       : super(key: key);
@@ -27,7 +25,7 @@ class SkillGrid extends StatelessWidget {
           children: [
             Image.network(
               aboutData?.skills?[index]['image'].toString() ?? '',
-              width: size.width > _tablet ? 84 : 54,
+              width: size.width <= mobile ? 34 : 84,
               errorBuilder: (context, error, stackTrace) {
                 return const Icon(
                   Icons.desktop_windows_rounded,
