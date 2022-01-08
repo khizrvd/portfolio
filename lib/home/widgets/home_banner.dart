@@ -5,13 +5,15 @@ import 'package:portfolio/home/repository_layer/models/home_repository_model.dar
 import 'package:portfolio/home/widgets/credits_mobile_view.dart';
 import 'package:portfolio/home/widgets/credits_web_view.dart';
 import 'package:portfolio/home/widgets/wave_clipper.dart';
-
-double _tablet = 1000;
-double _mobile = 700;
+import 'package:portfolio/utils/animation.dart';
+import 'package:portfolio/utils/constants.dart';
 
 class HomeBanner extends StatelessWidget {
-  const HomeBanner({Key? key, required this.controller}) : super(key: key);
+  const HomeBanner(
+      {Key? key, required this.controller, required this.animationController})
+      : super(key: key);
   final PageController controller;
+  final AnimationController animationController;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class HomeBanner extends StatelessWidget {
           case HomeStatus.loaded:
             return _HomeLoaded(
               homeData: state.homeData,
+              animationController: animationController,
             );
           case HomeStatus.error:
           default:
@@ -64,9 +67,12 @@ class _HomeLoading extends StatelessWidget {
 }
 
 class _HomeLoaded extends StatelessWidget {
-  const _HomeLoaded({Key? key, required this.homeData}) : super(key: key);
+  const _HomeLoaded(
+      {Key? key, required this.homeData, required this.animationController})
+      : super(key: key);
 
   final HomeRepoModel? homeData;
+  final AnimationController animationController;
 
   @override
   Widget build(BuildContext context) {
@@ -104,10 +110,11 @@ class _HomeLoaded extends StatelessWidget {
             width: mWidth * 0.22,
           ),
         ),
-        size.width > _mobile
+        size.width > mobile
             ? Positioned(
                 left: mWidth * 0.05,
                 child: CreditsWebView(
+                  animationController: animationController,
                   name: "HELLO I'M ${homeData!.name.toUpperCase()}",
                   qualification:
                       homeData?.qualification.toString().toUpperCase(),
@@ -117,6 +124,7 @@ class _HomeLoaded extends StatelessWidget {
             : Positioned(
                 top: 55,
                 child: CreditsMobileView(
+                  animationController: animationController,
                   name: "HELLO I'M ${homeData!.name.toUpperCase()}",
                   qualification:
                       homeData?.qualification.toString().toUpperCase(),
@@ -126,11 +134,16 @@ class _HomeLoaded extends StatelessWidget {
         Positioned(
           bottom: 5,
           right: mWidth * 0.05,
-          child: size.width > _mobile
-              ? Image.asset(
+          child: size.width > mobile
+              ? CustomAnimation(
+                animationController: animationController,
+                beginOffset: const Offset(1, 0),
+                endOffset: Offset.zero,
+                child: Image.asset(
                   "assets/images/hero-img.png",
-                  width: size.width > _tablet ? 500 : 400,
-                )
+                  width: size.width > tablet ? 500 : 400,
+                ),
+              )
               : Container(),
         ),
       ],

@@ -4,3 +4,6 @@ Color primaryColor = const Color(0xff4275FA);
 Color secondaryColor = const Color(0xff2E2D56);
 Color backgroundColor = const Color(0xffE5E5E5);
 Color lightColor = const Color(0xff929292);
+
+double tablet = 1000;
+double mobile = 700;

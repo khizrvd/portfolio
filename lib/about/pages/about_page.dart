@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/about/bloc/about_bloc.dart';
 import 'package:portfolio/about/repository_layer/models/about_repository_model.dart';
+import 'package:portfolio/about/widgets/about_me.dart';
 import 'package:portfolio/about/widgets/skill_grid.dart';
-
-double _tablet = 1000;
-double _mobile = 700;
+import 'package:portfolio/utils/constants.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key, required this.controller}) : super(key: key);
@@ -57,48 +56,79 @@ class _AboutLoaded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double mWidth = MediaQuery.of(context).size.width;
-    double mHeight = MediaQuery.of(context).size.height;
     final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 50,
-      ),
-      child: Stack(
-        alignment: Alignment.centerLeft,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(
-              left: size.width > _tablet ? 60 : 55,
-              top: 45,
-            ),
-            child: Image.asset(
-              'assets/images/ellipse-3.png',
-              color: const Color(0xff1864D7).withOpacity(0.75),
-              width: size.width > _tablet ? 240 : 190,
-            ),
-          ),
-          SizedBox(
-            width: size.width > _tablet ? 360 : 300,
-            child: GridView.builder(
-              itemCount: aboutData?.skills?.length ?? 4,
-              shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                childAspectRatio: 1,
-                crossAxisSpacing: 50,
-                mainAxisSpacing: 50,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Stack(
+          alignment: Alignment.centerLeft,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 60,
+                top: 45,
               ),
-              itemBuilder: (context, index) {
-                return SkillGrid(
-                  aboutData: aboutData,
-                  index: index,
-                );
-              },
+              child: Image.asset(
+                'assets/images/ellipse-3.png',
+                color: const Color(0xff1864D7).withOpacity(0.75),
+                width: 240,
+              ),
             ),
-          ),
-        ],
-      ),
+            SizedBox(
+              width: 360,
+              child: GridView.builder(
+                itemCount: aboutData?.skills?.length ?? 4,
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 1,
+                  crossAxisSpacing: 50,
+                  mainAxisSpacing: 50,
+                ),
+                itemBuilder: (context, index) {
+                  return SkillGrid(
+                    aboutData: aboutData,
+                    index: index,
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
+        size.width > tablet
+            ? Padding(
+                padding: const EdgeInsets.only(top: 150.0),
+                child: Image.asset(
+                  'assets/images/boy.png',
+                  width: 325,
+                ),
+              )
+            : Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 25.0,
+                  top: 50,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: AboutMe(
+                        aboutData: aboutData,
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/images/boy.png',
+                      width: 225,
+                    ),
+                  ],
+                ),
+              ),
+        size.width > tablet
+            ? AboutMe(
+                aboutData: aboutData,
+              )
+            : Container(),
+      ],
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -9,8 +11,6 @@ import 'package:portfolio/home/widgets/mobile_nav_bar.dart';
 import 'package:portfolio/home/widgets/web_nav_bar.dart';
 import 'package:portfolio/utils/constants.dart';
 
-double _mobile = 700;
-
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -18,20 +18,31 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   final PageController controller = PageController();
+  late AnimationController _animationController;
 
   @override
   void initState() {
     controller.addListener(() {
       setState(() {});
     });
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(
+        milliseconds: 750,
+      ),
+    );
+    Timer(const Duration(milliseconds: 200),
+        () => _animationController.forward());
     super.initState();
   }
 
   @override
   void dispose() {
     controller.dispose();
+    _animationController.dispose();
     super.dispose();
   }
 
@@ -64,7 +75,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
         actions: [
-          size.width > _mobile
+          size.width > mobile
               ? const WebNavBar()
               : Builder(
                   builder: (context) {
@@ -97,6 +108,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: HomeBanner(
               controller: controller,
+              animationController: _animationController,
             ),
           ),
           BlocProvider(
