@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class PortfolioDataModel extends Equatable {
   const PortfolioDataModel({required this.projects});
 
-  final List projects;
+  final List? projects;
 
   Map<String, dynamic> toJson() {
     return {

@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class SkillDataModel extends Equatable {
   const SkillDataModel({required this.skills});
 
-  final List skills;
+  final List? skills;
 
   Map<String, dynamic> toJson() {
     return {

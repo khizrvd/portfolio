@@ -25,7 +25,7 @@ class CreditsMobileView extends StatelessWidget {
       children: [
         CustomAnimation(
           animationController: animationController,
-          beginOffset: const Offset(0, -1),
+          beginOffset: const Offset(1, 0),
           endOffset: Offset.zero,
           child: Column(
             children: [
@@ -86,7 +86,7 @@ class CreditsMobileView extends StatelessWidget {
         const SizedBox(height: 15.0),
         CustomAnimation(
           animationController: animationController,
-          beginOffset: const Offset(0, 1),
+          beginOffset: const Offset(-1, 0),
           endOffset: Offset.zero,
           child: Image.asset(
             "assets/images/hero-img.png",

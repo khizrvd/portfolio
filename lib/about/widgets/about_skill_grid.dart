@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/about/repository_layer/models/about_repository_model.dart';
 import 'package:portfolio/utils/constants.dart';
 
-class SkillGrid extends StatelessWidget {
-  const SkillGrid({Key? key, required this.aboutData, required this.index})
+class AboutSkillGrid extends StatelessWidget {
+  const AboutSkillGrid({Key? key, required this.aboutData, required this.index})
       : super(key: key);
 
   final AboutRepoModel? aboutData;

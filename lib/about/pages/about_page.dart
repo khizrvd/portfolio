@@ -54,6 +54,17 @@ class _AboutInitial extends StatelessWidget {
   }
 }
 
+class _AboutLoading extends StatelessWidget {
+  const _AboutLoading({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: CircularProgressIndicator(),
+    );
+  }
+}
+
 class _AboutLoaded extends StatefulWidget {
   const _AboutLoaded({Key? key, required this.aboutData}) : super(key: key);
 
@@ -98,17 +109,6 @@ class _AboutLoadedState extends State<_AboutLoaded>
             aboutData: widget.aboutData,
             animationController: animationController,
           );
-  }
-}
-
-class _AboutLoading extends StatelessWidget {
-  const _AboutLoading({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
   }
 }
 

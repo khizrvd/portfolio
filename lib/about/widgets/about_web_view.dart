@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/about/repository_layer/models/about_repository_model.dart';
 import 'package:portfolio/about/widgets/about_me.dart';
-import 'package:portfolio/about/widgets/skill_grid.dart';
+import 'package:portfolio/about/widgets/about_skill_grid.dart';
 import 'package:portfolio/utils/animation.dart';
 import 'package:portfolio/utils/constants.dart';
 
@@ -47,7 +47,7 @@ class AboutWebView extends StatelessWidget {
                     mainAxisSpacing: 50,
                   ),
                   itemBuilder: (context, index) {
-                    return SkillGrid(
+                    return AboutSkillGrid(
                       aboutData: aboutData,
                       index: index,
                     );
@@ -58,18 +58,16 @@ class AboutWebView extends StatelessWidget {
           ),
         ),
         size.width > tablet
-            ? CustomAnimation(
-                animationController: animationController,
-                beginOffset: const Offset(0, 1),
-                endOffset: Offset.zero,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 150.0),
-                  child: Image.asset(
-                    'assets/images/boy.png',
-                    width: 325,
-                  ),
+            ? FadeTransition(
+              opacity: animationController,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 150.0),
+                child: Image.asset(
+                  'assets/images/boy.png',
+                  width: 325,
                 ),
-              )
+              ),
+            )
             : Padding(
                 padding: const EdgeInsets.only(
                   bottom: 25.0,
@@ -81,7 +79,7 @@ class AboutWebView extends StatelessWidget {
                     Expanded(
                       child: CustomAnimation(
                         animationController: animationController,
-                        beginOffset: const Offset(0, -1),
+                        beginOffset: const Offset(1, 0),
                         endOffset: Offset.zero,
                         child: AboutMe(
                           aboutData: aboutData,
@@ -90,7 +88,7 @@ class AboutWebView extends StatelessWidget {
                     ),
                     CustomAnimation(
                       animationController: animationController,
-                      beginOffset: const Offset(0, 1),
+                      beginOffset: const Offset(1, 0),
                       endOffset: Offset.zero,
                       child: Image.asset(
                         'assets/images/boy.png',

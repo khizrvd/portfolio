@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/about/repository_layer/models/about_repository_model.dart';
 import 'package:portfolio/about/widgets/about_me.dart';
-import 'package:portfolio/about/widgets/skill_grid.dart';
+import 'package:portfolio/about/widgets/about_skill_grid.dart';
 import 'package:portfolio/utils/animation.dart';
 
 class AboutMobileView extends StatelessWidget {
@@ -59,7 +59,7 @@ class AboutMobileView extends StatelessWidget {
                       mainAxisSpacing: 20,
                     ),
                     itemBuilder: (context, index) {
-                      return SkillGrid(
+                      return AboutSkillGrid(
                         aboutData: aboutData,
                         index: index,
                       );
