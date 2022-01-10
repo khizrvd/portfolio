@@ -25,5 +25,15 @@ class PortfolioBloc extends Bloc<PortfolioEvent, PortfolioState> {
         );
       },
     );
+
+    on<MouseHovered>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            hoverColor: state.hoverColor,
+          ),
+        );
+      },
+    );
   }
 }

@@ -6,32 +6,77 @@
             {
                 "id": 1,
                 "title": "ArchDaily",
-                "image": "https://imgur.com/78eEbCZ.png"
+                "image": "https://imgur.com/tG4HSVh.png"
             },
             {
                 "id": 2,
-                "title": "NGEBON Farming",
-                "image": "https://imgur.com/pyBsI8P.png"
+                "title": "Crypton",
+                "image": "https://imgur.com/3wMbYrS.png"
             },
             {
                 "id": 3,
-                "title": "Banking App",
-                "image": "https://imgur.com/LBciiw0.png"
+                "title": "Sandy",
+                "image": "https://imgur.com/J94U9ux.png"
             },
             {
                 "id": 4,
-                "title": "Musikita",
-                "image": "https://imgur.com/XqYG3cS.png"
+                "title": "Chalatix",
+                "image": "https://imgur.com/hkO6tk2.png"
             },
             {
                 "id": 5,
-                "title": "Crypton",
-                "image": "https://imgur.com/kH1QaGA"
+                "title": "Movea",
+                "image": "https://imgur.com/i6cY4fY.png"
             },
             {
                 "id": 6,
+                "title": "Optima",
+                "image": "https://imgur.com/LBfhyI6.png"
+            },
+            {
+                "id": 7,
+                "title": "Scarlet",
+                "image": "https://imgur.com/ahkJOfE.png"
+            },
+            {
+                "id": 8,
+                "title": "BuyItNow",
+                "image": "https://imgur.com/rtKEyY4.png"
+            },
+            {
+                "id": 9,
+                "title": "BankCat",
+                "image": "https://imgur.com/YJu2xMl.png"
+            },
+            {
+                "id": 10,
+                "title": "NGEBON Farming",
+                "image": "https://imgur.com/1gT2zcU.png"
+            },
+            {
+                "id": 11,
+                "title": "BankIT",
+                "image": "https://imgur.com/Ej5WAwA.png"
+            },
+            {
+                "id": 12,
+                "title": "Space",
+                "image": "https://imgur.com/hmLzrZb.png"
+            },
+            {
+                "id": 13,
+                "title": "Musikita",
+                "image": "https://imgur.com/Q24vTH0.png"
+            },
+            {
+                "id": 14,
                 "title": "LearnNow",
-                "image": "https://imgur.com/Fh0hDwU"
+                "image": "https://imgur.com/uMCMNqU.png"
+            },
+            {
+                "id": 15,
+                "title": "BoldWrap",
+                "image": "https://imgur.com/lgFm0VA.png"
             }
         ]
     }

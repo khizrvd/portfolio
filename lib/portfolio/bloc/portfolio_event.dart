@@ -6,3 +6,7 @@ class PortfolioDataLoaded extends PortfolioEvent {
   @override
   List<Object?> get props => [];
 }
+class MouseHovered extends PortfolioEvent {
+  @override
+  List<Object?> get props => [];
+}

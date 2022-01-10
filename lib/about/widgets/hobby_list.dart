@@ -19,7 +19,7 @@ class HobbyList extends StatelessWidget {
           aboutData?.hobbies?[index]['image'].toString() ?? '',
           errorBuilder: (context, error, stackTrace) {
             return const Icon(
-              Icons.desktop_windows_rounded,
+              Icons.image_not_supported_outlined,
               color: Colors.blue,
             );
           },

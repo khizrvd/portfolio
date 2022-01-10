@@ -7,6 +7,8 @@ import 'package:portfolio/home/bloc/home_bloc.dart';
 import 'package:portfolio/home/widgets/home_banner.dart';
 import 'package:portfolio/home/widgets/mobile_nav_bar.dart';
 import 'package:portfolio/home/widgets/web_nav_bar.dart';
+import 'package:portfolio/portfolio/bloc/portfolio_bloc.dart';
+import 'package:portfolio/portfolio/pages/portfolio_page.dart';
 import 'package:portfolio/skill/bloc/skill_bloc.dart';
 import 'package:portfolio/skill/pages/skill_page.dart';
 import 'package:portfolio/utils/constants.dart';
@@ -112,6 +114,14 @@ class _HomePageState extends State<HomePage> {
               RepositoryProvider.of(context),
             ),
             child: SkillPage(
+              controller: controller,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => PortfolioBloc(
+              RepositoryProvider.of(context),
+            ),
+            child: PortfolioPage(
               controller: controller,
             ),
           ),

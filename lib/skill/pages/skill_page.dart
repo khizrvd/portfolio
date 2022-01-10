@@ -99,7 +99,6 @@ class _SkillLoadedState extends State<_SkillLoaded>
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.only(
         top: 65.0,
@@ -135,6 +134,7 @@ class _SkillLoadedState extends State<_SkillLoaded>
                     crossAxisSpacing: 30,
                     // mainAxisSpacing: 30,
                   ),
+                  primary: false,
                   shrinkWrap: true,
                   padding: const EdgeInsets.symmetric(
                     vertical: 12.0,

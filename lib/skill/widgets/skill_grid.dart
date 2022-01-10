@@ -11,9 +11,6 @@ class SkillGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double mHeight = MediaQuery.of(context).size.height;
-    double mWidth = MediaQuery.of(context).size.width;
-    final size = MediaQuery.of(context).size;
     return Stack(
       children: [
         Positioned(
@@ -76,7 +73,7 @@ class SkillGrid extends StatelessWidget {
             width: 90,
             errorBuilder: (context, error, stackTrace) {
               return const Icon(
-                Icons.desktop_windows_rounded,
+                Icons.image_not_supported_outlined,
                 color: Colors.white,
               );
             },

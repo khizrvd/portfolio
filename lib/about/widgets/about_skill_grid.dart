@@ -28,7 +28,7 @@ class AboutSkillGrid extends StatelessWidget {
               width: size.width <= mobile ? 34 : 84,
               errorBuilder: (context, error, stackTrace) {
                 return const Icon(
-                  Icons.desktop_windows_rounded,
+                  Icons.image_not_supported_outlined,
                   color: Colors.blue,
                 );
               },
