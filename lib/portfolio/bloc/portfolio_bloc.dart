@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:portfolio/portfolio/repository_layer/models/portfolio_repository_model.dart';
+import 'package:portfolio/portfolio/repository_layer/models/project_repo_model.dart';
 import 'package:portfolio/portfolio/repository_layer/portfolio_repository_layer.dart';
 
 part 'portfolio_event.dart';
@@ -30,9 +31,19 @@ class PortfolioBloc extends Bloc<PortfolioEvent, PortfolioState> {
       (event, emit) async {
         emit(
           state.copyWith(
-            hoverColor: state.hoverColor,
+            hoveredPortfolioId: event.hoveredId,
           ),
         );
+
+    on<MouseUnHovered>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            hoveredPortfolioId: event.hoveredId,
+          ),
+        );
+      },
+    );
       },
     );
   }

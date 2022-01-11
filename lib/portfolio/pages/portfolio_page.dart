@@ -6,7 +6,8 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/portfolio/bloc/portfolio_bloc.dart';
 import 'package:portfolio/portfolio/repository_layer/models/portfolio_repository_model.dart';
-import 'package:portfolio/portfolio/widgets/portfolio_grid.dart';
+import 'package:portfolio/portfolio/repository_layer/models/project_repo_model.dart';
+import 'package:portfolio/portfolio/widgets/project_grid.dart';
 import 'package:portfolio/utils/constants.dart';
 
 class PortfolioPage extends StatelessWidget {
@@ -67,8 +68,10 @@ class _PortfolioLoading extends StatelessWidget {
 }
 
 class _PortfolioLoaded extends StatefulWidget {
-  const _PortfolioLoaded({Key? key, required this.portfolioData})
-      : super(key: key);
+  const _PortfolioLoaded({
+    Key? key,
+    required this.portfolioData,
+  }) : super(key: key);
 
   final PortfolioRepoModel? portfolioData;
 
@@ -142,14 +145,13 @@ class _PortfolioLoadedState extends State<_PortfolioLoaded>
                 itemCount: widget.portfolioData?.projects?.length ?? 6,
                 itemBuilder: (context, index) {
                   return AnimationConfiguration.staggeredList(
-                      position: index,
-                      duration: const Duration(milliseconds: 750),
+                    position: index,
+                    duration: const Duration(milliseconds: 750),
                     child: SlideAnimation(
                       horizontalOffset: -50.0,
                       child: FadeInAnimation(
-                        child: PortfolioGrid(
-                          index: index,
-                          portfolioData: widget.portfolioData,
+                        child: ProjectGrid(
+                          projectData: widget.portfolioData?.projects?[index],
                         ),
                       ),
                     ),

@@ -7,6 +7,17 @@ class PortfolioDataLoaded extends PortfolioEvent {
   List<Object?> get props => [];
 }
 class MouseHovered extends PortfolioEvent {
+  MouseHovered(this.hoveredId);
+  final int hoveredId;
+
   @override
-  List<Object?> get props => [];
+  List<Object?> get props => [hoveredId];
+}
+
+class MouseUnHovered extends PortfolioEvent {
+  MouseUnHovered(this.hoveredId);
+  final int? hoveredId;
+
+  @override
+  List<Object?> get props => [hoveredId];
 }

@@ -6,24 +6,28 @@ class PortfolioState extends Equatable {
   const PortfolioState({
     this.portfolioStatus = PortfolioStatus.initial,
     this.portfolioData,
-    this.hoverColor = false,
+    this.hoveredPortfolioId,
   });
   final PortfolioStatus portfolioStatus;
   final PortfolioRepoModel? portfolioData;
-  final bool hoverColor;
+  final int? hoveredPortfolioId;
 
   PortfolioState copyWith({
     PortfolioStatus? portfolioStatus,
     PortfolioRepoModel? portfolioData,
-    bool? hoverColor,
+    int? hoveredPortfolioId,
   }) {
     return PortfolioState(
       portfolioStatus: portfolioStatus ?? this.portfolioStatus,
       portfolioData: portfolioData ?? this.portfolioData,
-      hoverColor: hoverColor ?? this.hoverColor,
+      hoveredPortfolioId: hoveredPortfolioId ?? this.hoveredPortfolioId,
     );
   }
 
   @override
-  List<Object?> get props => [portfolioStatus, portfolioData, hoverColor];
+  List<Object?> get props => [
+        portfolioStatus,
+        portfolioData,
+        hoveredPortfolioId,
+  ];
 }

@@ -6,7 +6,8 @@ import 'package:portfolio/portfolio/data_layer/models/portfolio_data_model.dart'
 class PortfolioDataLayer {
   Future<PortfolioDataModel> getPortfolioData() async {
     try {
-      String response = await rootBundle.loadString('assets/data/portfolio.json');
+      String response =
+          await rootBundle.loadString('assets/data/portfolio.json');
       final decoded = jsonDecode(response) as Map<String, dynamic>;
 
       if (decoded.isEmpty) {
@@ -18,8 +19,7 @@ class PortfolioDataLayer {
       if (portfolioJson.isEmpty) {
         throw decoded['message'];
       }
-      final _portfolioList = PortfolioDataModel.fromJson(portfolioJson);
-      return _portfolioList;
+      return PortfolioDataModel.fromJson(portfolioJson);
     } catch (e) {
       throw 'Portfolio Page not found';
     }
