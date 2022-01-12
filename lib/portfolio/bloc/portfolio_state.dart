@@ -1,10 +1,10 @@
 part of 'portfolio_bloc.dart';
 
-enum PortfolioStatus { initial, loading, loaded, error }
+enum PortfolioStatus { loading, loaded, error }
 
 class PortfolioState extends Equatable {
   const PortfolioState({
-    this.portfolioStatus = PortfolioStatus.initial,
+    this.portfolioStatus = PortfolioStatus.loading,
     this.portfolioData,
     this.hoveredPortfolioId,
   });

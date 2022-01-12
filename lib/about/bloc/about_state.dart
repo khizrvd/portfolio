@@ -1,10 +1,10 @@
 part of 'about_bloc.dart';
 
-enum AboutStatus { initial, loading, loaded, error }
+enum AboutStatus { loading, loaded, error }
 
 class AboutState extends Equatable {
   const AboutState({
-    this.aboutStatus = AboutStatus.initial,
+    this.aboutStatus = AboutStatus.loading,
     this.aboutData,
   });
   final AboutStatus aboutStatus;

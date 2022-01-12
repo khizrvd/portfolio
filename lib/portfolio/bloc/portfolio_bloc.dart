@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:portfolio/portfolio/repository_layer/models/portfolio_repository_model.dart';
-import 'package:portfolio/portfolio/repository_layer/models/project_repo_model.dart';
 import 'package:portfolio/portfolio/repository_layer/portfolio_repository_layer.dart';
 
 part 'portfolio_event.dart';

@@ -1,11 +1,11 @@
 part of 'skill_bloc.dart';
 
 
-enum SkillStatus { initial, loading, loaded, error }
+enum SkillStatus { loading, loaded, error }
 
 class SkillState extends Equatable {
   const SkillState({
-    this.skillStatus = SkillStatus.initial,
+    this.skillStatus = SkillStatus.loading,
     this.skillData,
   });
   final SkillStatus skillStatus;

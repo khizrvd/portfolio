@@ -20,12 +20,10 @@ class AboutPage extends StatelessWidget {
     return BlocBuilder<AboutBloc, AboutState>(
       builder: (context, state) {
         switch (state.aboutStatus) {
-          case AboutStatus.initial:
+          case AboutStatus.loading:
             context.read<AboutBloc>().add(
                   AboutDataLoaded(),
                 );
-            return const _AboutInitial();
-          case AboutStatus.loading:
             return const _AboutLoading();
           case AboutStatus.loaded:
             return _AboutLoaded(
@@ -36,20 +34,6 @@ class AboutPage extends StatelessWidget {
             return const _AboutError();
         }
       },
-    );
-  }
-}
-
-class _AboutInitial extends StatelessWidget {
-  const _AboutInitial({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'About Data is Empty!',
-        style: TextStyle(fontSize: 64),
-      ),
     );
   }
 }
@@ -77,6 +61,7 @@ class _AboutLoaded extends StatefulWidget {
 class _AboutLoadedState extends State<_AboutLoaded>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
+  late Timer timer;
 
   @override
   void initState() {
@@ -86,7 +71,7 @@ class _AboutLoadedState extends State<_AboutLoaded>
         milliseconds: 500,
       ),
     );
-    Timer(
+    timer = Timer(
         const Duration(milliseconds: 200), () => animationController.forward());
     super.initState();
   }
@@ -94,6 +79,7 @@ class _AboutLoadedState extends State<_AboutLoaded>
   @override
   void dispose() {
     animationController.dispose();
+    timer.cancel();
     super.dispose();
   }
 

@@ -55,19 +55,28 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: [
             SizedBox(width: mWidth * 0.03),
-            Text(
-              'Khizrfarooqui',
-              style: GoogleFonts.pacifico(
-                fontSize: 22,
-                fontWeight: FontWeight.w500,
-                color: Colors.white,
+            InkWell(
+              onTap: () => controller.animateToPage(
+                0,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeIn,
+              ),
+              child: Text(
+                'Khizrfarooqui',
+                style: GoogleFonts.pacifico(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],
         ),
         actions: [
           size.width > mobile
-              ? const WebNavBar()
+              ? WebNavBar(
+                  controller: controller,
+                )
               : Builder(
                   builder: (context) {
                     return FloatingActionButton.small(

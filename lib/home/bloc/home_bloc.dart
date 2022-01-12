@@ -25,5 +25,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       },
     );
+
+    on<NavButtonTapped>(
+      (event, emit) async {
+        emit(
+          state.copyWith(
+            page: event.controller,
+          ),
+        );
+      },
+    );
   }
 }

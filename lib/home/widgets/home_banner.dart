@@ -19,12 +19,10 @@ class HomeBanner extends StatelessWidget {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
         switch (state.homeStatus) {
-          case HomeStatus.initial:
+          case HomeStatus.loading:
             context.read<HomeBloc>().add(
                   HomeDataLoaded(),
                 );
-            return const _HomeInitial();
-          case HomeStatus.loading:
             return const _HomeLoading();
           case HomeStatus.loaded:
             return _HomeLoaded(
@@ -35,20 +33,6 @@ class HomeBanner extends StatelessWidget {
             return const _HomeError();
         }
       },
-    );
-  }
-}
-
-class _HomeInitial extends StatelessWidget {
-  const _HomeInitial({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        'Home Data is Empty!',
-        style: TextStyle(fontSize: 64),
-      ),
     );
   }
 }
@@ -76,6 +60,7 @@ class _HomeLoaded extends StatefulWidget {
 class _HomeLoadedState extends State<_HomeLoaded>
     with SingleTickerProviderStateMixin {
   late AnimationController animationController;
+  late Timer timer;
 
   @override
   void initState() {
@@ -85,7 +70,7 @@ class _HomeLoadedState extends State<_HomeLoaded>
         milliseconds: 500,
       ),
     );
-    Timer(
+    timer = Timer(
         const Duration(milliseconds: 200), () => animationController.forward());
     super.initState();
   }
@@ -93,6 +78,7 @@ class _HomeLoadedState extends State<_HomeLoaded>
   @override
   void dispose() {
     animationController.dispose();
+    timer.cancel();
     super.dispose();
   }
 

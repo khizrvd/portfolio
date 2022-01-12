@@ -1,10 +1,10 @@
 part of 'contact_bloc.dart';
 
-enum ContactStatus { initial, loading, loaded, error }
+enum ContactStatus { loading, loaded, error }
 
 class ContactState extends Equatable {
   const ContactState({
-    this.contactStatus = ContactStatus.initial,
+    this.contactStatus = ContactStatus.loading,
     this.contactData,
   });
   final ContactStatus contactStatus;

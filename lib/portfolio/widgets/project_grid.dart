@@ -1,81 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:portfolio/portfolio/bloc/portfolio_bloc.dart';
-import 'package:portfolio/portfolio/repository_layer/models/project_repo_model.dart';
+import 'package:portfolio/portfolio/widgets/project_grid_item.dart';
+import 'package:portfolio/utils/constants.dart';
 
-class ProjectGrid extends StatelessWidget {
-  const ProjectGrid({Key? key, required this.projectData}) : super(key: key);
-
-  final ProjectRepoModel? projectData;
+class ProjectGrid extends StatefulWidget {
+  const ProjectGrid({Key? key}) : super(key: key);
 
   @override
+  State<ProjectGrid> createState() => _ProjectGridState();
+}
+
+class _ProjectGridState extends State<ProjectGrid> {
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<PortfolioBloc, PortfolioState>(
-      builder: (context, state) {
-        return InkWell(
-          mouseCursor: MouseCursor.uncontrolled,
-          onTap: () {},
-          onHover: (hover) {
-            if (hover) {
-              BlocProvider.of<PortfolioBloc>(context).add(
-                MouseHovered(projectData?.id ?? 0),
-              );
-            } else {
-              BlocProvider.of<PortfolioBloc>(context).add(
-                MouseUnHovered(0),
-              );
-            }
-          },
-          child: state.hoveredPortfolioId == projectData?.id
-              ? Card(
-                  clipBehavior: Clip.hardEdge,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Image.network(
-                        projectData?.image ?? '',
-                        color: Colors.black.withOpacity(0.5),
-                        colorBlendMode: BlendMode.multiply,
-                        errorBuilder: (context, error, stackTrace) {
-                          return const Icon(
-                            Icons.image_not_supported_outlined,
-                            size: 50,
-                            color: Colors.blue,
-                          );
-                        },
-                      ),
-                      Text(
-                        projectData?.title?.toString() ?? 'Unknown',
-                        style: const TextStyle(
-                          fontSize: 26,
-                          color: Colors.white,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
-              : Card(
-                  clipBehavior: Clip.hardEdge,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Image.network(
-                    projectData?.image ?? '',
-                    errorBuilder: (context, error, stackTrace) {
-                      return const Icon(
-                        Icons.image_not_supported_outlined,
-                        size: 50,
-                        color: Colors.blue,
-                      );
-                    },
+    final size = MediaQuery.of(context).size;
+    return AnimationLimiter(
+      child: BlocBuilder<PortfolioBloc, PortfolioState>(
+        buildWhen: (previous, current) =>
+            previous.hoveredPortfolioId != current.hoveredPortfolioId,
+        builder: (context, state) {
+          return MasonryGridView.count(
+            crossAxisCount: size.width < mobile
+                ? 2
+                : size.width < tablet
+                    ? 3
+                    : 4,
+            mainAxisSpacing: 20,
+            crossAxisSpacing: 20,
+            primary: false,
+            padding: const EdgeInsets.symmetric(
+              vertical: 12.0,
+              horizontal: 60.0,
+            ),
+            itemCount: state.portfolioData?.projects?.length ?? 6,
+            itemBuilder: (context, index) {
+              return AnimationConfiguration.staggeredList(
+                position: index,
+                duration: const Duration(milliseconds: 750),
+                child: SlideAnimation(
+                  horizontalOffset: -50.0,
+                  child: FadeInAnimation(
+                    child: ProjectGridItem(
+                      projectData: state.portfolioData?.projects?[index],
+                      hoveredId: state.hoveredPortfolioId,
+                    ),
                   ),
                 ),
-        );
-      },
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }
