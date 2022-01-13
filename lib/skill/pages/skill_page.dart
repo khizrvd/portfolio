@@ -55,34 +55,26 @@ class _SkillLoaded extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 65),
-      child: CustomScrollView(
-        primary: false,
-        slivers: [
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                Text(
-                  'WHAT I DO',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: primaryColor,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 5.0),
-                Text(
-                  'Specializing In',
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: secondaryColor,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(height: 5.0),
-              ],
+      child: Column(
+        children: [
+          Text(
+            'WHAT I DO',
+            style: TextStyle(
+              fontSize: 20,
+              color: primaryColor,
+              fontWeight: FontWeight.w500,
             ),
           ),
-          SliverToBoxAdapter(
+          const SizedBox(height: 5.0),
+          Text(
+            'Specializing In',
+            style: TextStyle(
+              fontSize: 30,
+              color: secondaryColor,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          Expanded(
             child: SkillGrid(
               skillData: skillData,
             ),

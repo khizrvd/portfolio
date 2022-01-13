@@ -22,14 +22,18 @@ class AboutMobileView extends StatelessWidget {
         top: 60,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Flexible(
             child: CustomAnimation(
               animationController: animationController,
               beginOffset: const Offset(-1, 0),
               endOffset: Offset.zero,
-              child: AboutMe(
-                aboutData: aboutData,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: AboutMe(
+                  aboutData: aboutData,
+                ),
               ),
             ),
           ),

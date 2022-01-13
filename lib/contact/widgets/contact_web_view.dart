@@ -10,11 +10,12 @@ class ContactWebView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double mHeight = MediaQuery.of(context).size.height;
     double mWidth = MediaQuery.of(context).size.width;
     return Row(
       children: [
         Container(
-          height: 400,
+          height: mHeight * 0.5,
           width: mWidth * 0.5,
           decoration: const BoxDecoration(
             color: Color(0xff294BA1),
@@ -27,7 +28,7 @@ class ContactWebView extends StatelessWidget {
         ),
         SizedBox(
           width: mWidth * 0.5,
-          height: 400,
+          height: mHeight * 0.5,
           child: const ContactForm(),
         ),
       ],

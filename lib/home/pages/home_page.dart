@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () => controller.animateToPage(
                 0,
                 duration: const Duration(milliseconds: 300),
-                curve: Curves.easeIn,
+                curve: Curves.bounceInOut,
               ),
               child: Text(
                 'Khizrfarooqui',

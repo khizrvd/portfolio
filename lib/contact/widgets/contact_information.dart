@@ -36,6 +36,7 @@ class ContactInformation extends StatelessWidget {
             left: 45,
             right: 45,
             top: 20,
+            bottom: 20,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

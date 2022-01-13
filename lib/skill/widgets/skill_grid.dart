@@ -13,16 +13,18 @@ class SkillGrid extends StatelessWidget {
     return AnimationLimiter(
       child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 400,
+            maxCrossAxisExtent: 425,
             mainAxisExtent: 275,
             crossAxisSpacing: 30,
             // mainAxisSpacing: 30,
           ),
           primary: false,
           shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(
-            vertical: 12.0,
-            horizontal: 60.0,
+          padding: const EdgeInsets.only(
+            top: 40,
+            left: 60.0,
+            right: 60.0,
+            bottom: 20,
           ),
           itemCount: skillData?.skills?.length ?? 6,
           itemBuilder: (context, index) {
