@@ -21,6 +21,7 @@ class CreditsMobileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomAnimation(
           animationController: animationController,
@@ -69,7 +70,7 @@ class CreditsMobileView extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 15.0),
+        const SizedBox(height: 25.0),
         CustomAnimation(
           animationController: animationController,
           beginOffset: const Offset(-1, 0),

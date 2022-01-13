@@ -80,10 +80,6 @@ class ContactBloc extends Bloc<ContactEvent, ContactState> {
         ),
       ),
     );
-    print('name${state.name.valid}');
-    print('email${state.email.valid}');
-    print('message${state.message.valid}');
-    print(state.status.isValidated);
   }
 
   void _onFormSubmitted(FormSubmitted event, Emitter<ContactState> emit) async {

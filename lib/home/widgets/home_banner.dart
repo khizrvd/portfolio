@@ -94,7 +94,6 @@ class _HomeLoadedState extends State<_HomeLoaded>
         ClipPath(
           clipper: WaveClipper(),
           child: Container(
-            padding: const EdgeInsets.only(bottom: 50),
             height: mHeight,
             decoration: backgroundGradient,
             alignment: Alignment.center,
@@ -129,16 +128,13 @@ class _HomeLoadedState extends State<_HomeLoaded>
                   location: widget.homeData?.location.toString(),
                 ),
               )
-            : Positioned(
-                top: 55,
-                child: CreditsMobileView(
-                  animationController: animationController,
-                  name: "HELLO I'M ${widget.homeData!.name.toUpperCase()}",
-                  qualification:
-                      widget.homeData?.qualification.toString().toUpperCase(),
-                  location: widget.homeData?.location.toString(),
-                ),
-              ),
+            : CreditsMobileView(
+              animationController: animationController,
+              name: "HELLO I'M ${widget.homeData!.name.toUpperCase()}",
+              qualification:
+                  widget.homeData?.qualification.toString().toUpperCase(),
+              location: widget.homeData?.location.toString(),
+            ),
         Positioned(
           bottom: 5,
           right: mWidth * 0.05,

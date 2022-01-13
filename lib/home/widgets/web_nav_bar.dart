@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class WebNavBar extends StatelessWidget {
   const WebNavBar({Key? key, required this.controller}) : super(key: key);
@@ -13,35 +14,19 @@ class WebNavBar extends StatelessWidget {
       children: [
         navItem(
           'About',
-          () => controller.animateToPage(
-            1,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeIn,
-          ),
+          1,
         ),
         navItem(
           'Skills',
-          () => controller.animateToPage(
-            2,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeIn,
-          ),
+          2,
         ),
         navItem(
           'Portfolio',
-          () => controller.animateToPage(
-            3,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeIn,
-          ),
+          3,
         ),
         navItem(
           'Contact',
-          () => controller.animateToPage(
-            4,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeIn,
-          ),
+          4,
         ),
       ],
     );
@@ -49,19 +34,29 @@ class WebNavBar extends StatelessWidget {
 
   navItem(
     String title,
-    Function() onTap,
+    int page,
   ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0),
       child: InkWell(
-        onTap: onTap,
+        onTap: () => controller.animateToPage(
+          page,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.bounceInOut,
+        ),
         child: Text(
           title,
-          style: const TextStyle(
-            fontSize: 18.0,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-          ),
+          style: controller.hasClients && controller.page == page
+              ? GoogleFonts.pacifico(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                )
+              : const TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
         ),
       ),
     );

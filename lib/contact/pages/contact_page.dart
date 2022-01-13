@@ -4,8 +4,6 @@ import 'package:formz/formz.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/contact/bloc/contact_bloc.dart';
 import 'package:portfolio/contact/repository_layer/models/contact_repository_model.dart';
-import 'package:portfolio/contact/widgets/contact_form.dart';
-import 'package:portfolio/contact/widgets/contact_information.dart';
 import 'package:portfolio/contact/widgets/contact_mobile_view.dart';
 import 'package:portfolio/contact/widgets/contact_web_view.dart';
 import 'package:portfolio/utils/constants.dart';
