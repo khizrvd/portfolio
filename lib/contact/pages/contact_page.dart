@@ -126,7 +126,7 @@ class _ContactLoaded extends StatelessWidget {
                   ? ContactWebView(contactData: contactData)
                   : ContactMobileView(contactData: contactData),
             ),
-            const SizedBox(height: 10.0),
+            const SizedBox(height: 15.0),
             Container(
               width: mWidth,
               height: 100,

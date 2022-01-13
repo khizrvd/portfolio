@@ -15,7 +15,7 @@ class ContactWebView extends StatelessWidget {
     return Row(
       children: [
         Container(
-          height: mHeight * 0.5,
+          height: 400,
           width: mWidth * 0.5,
           decoration: const BoxDecoration(
             color: Color(0xff294BA1),
@@ -28,7 +28,7 @@ class ContactWebView extends StatelessWidget {
         ),
         SizedBox(
           width: mWidth * 0.5,
-          height: mHeight * 0.5,
+          height: 400,
           child: const ContactForm(),
         ),
       ],
