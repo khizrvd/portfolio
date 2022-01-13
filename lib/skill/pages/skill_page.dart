@@ -1,12 +1,8 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:portfolio/skill/bloc/skill_bloc.dart';
 import 'package:portfolio/skill/repository_layer/models/skill_repository_model.dart';
 import 'package:portfolio/skill/widgets/skill_grid.dart';
-import 'package:portfolio/skill/widgets/skill_grid_item.dart';
 import 'package:portfolio/utils/constants.dart';
 
 class SkillPage extends StatelessWidget {

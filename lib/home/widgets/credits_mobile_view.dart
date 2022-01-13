@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/home/widgets/banner_button.dart';
 import 'package:portfolio/utils/animation.dart';
-import 'package:portfolio/utils/constants.dart';
 
 class CreditsMobileView extends StatelessWidget {
   const CreditsMobileView({
@@ -61,24 +60,11 @@ class CreditsMobileView extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 12.0),
-              Row(
-                children: [
-                  BannerButton(
-                    title: 'Hire Me',
-                    color: Colors.white,
-                    titleColor: primaryColor,
-                    onTap: () {},
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0),
-                  ),
-                  BannerButton(
-                    title: 'Get CV',
-                    color: Colors.transparent,
-                    titleColor: Colors.white,
-                    onTap: () {},
-                  ),
-                ],
+              BannerButton(
+                title: 'Get CV',
+                color: Colors.transparent,
+                titleColor: Colors.white,
+                onTap: () {},
               ),
             ],
           ),

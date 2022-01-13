@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/about/bloc/about_bloc.dart';
 import 'package:portfolio/about/pages/about_page.dart';
+import 'package:portfolio/contact/bloc/contact_bloc.dart';
+import 'package:portfolio/contact/pages/contact_page.dart';
 import 'package:portfolio/home/bloc/home_bloc.dart';
 import 'package:portfolio/home/widgets/home_banner.dart';
 import 'package:portfolio/home/widgets/mobile_nav_bar.dart';
@@ -44,7 +46,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: backgroundColor,
       extendBodyBehindAppBar: true,
-      endDrawer: const MobileNavBar(),
+      endDrawer: MobileNavBar(controller: controller),
       appBar: AppBar(
         centerTitle: false,
         automaticallyImplyLeading: false,
@@ -131,6 +133,14 @@ class _HomePageState extends State<HomePage> {
               RepositoryProvider.of(context),
             ),
             child: PortfolioPage(
+              controller: controller,
+            ),
+          ),
+          BlocProvider(
+            create: (context) => ContactBloc(
+              RepositoryProvider.of(context),
+            ),
+            child: ContactPage(
               controller: controller,
             ),
           ),
